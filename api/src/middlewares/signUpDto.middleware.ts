@@ -1,8 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import { ValidationError, validate } from "class-validator";
-import { SignUpDto } from "../dto/signUp.dto";
+import SignUpDto from "../dto/signUp.dto";
 
-const signUpDtoMiddleware = (req: Request, res: Response, next: NextFunction) => {
+const signUpDtoMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { name, email, address, phone, password, confirmpassword } = req.body;
 
   const valid = new SignUpDto();

@@ -1,20 +1,20 @@
 import { NextFunction, Request, Response } from "express";
 import { validate } from "class-validator";
-import UpdateUserDto from "../dto/updateUser.dto";
+import UpdateProductDto from "../dto/updateProduct.dto";
 
-const updateUserDtoMiddleware = (
+const updateProductDtoMiddleware = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const { name, email, address, phone, password } = req.body;
+  const { name, description, price, stock, imgUrl } = req.body;
 
-  const valid = new UpdateUserDto();
+  const valid = new UpdateProductDto();
   valid.name = name;
-  valid.email = email;
-  valid.address = address;
-  valid.phone = phone;
-  valid.password = password;
+  valid.description = description;
+  valid.price = price;
+  valid.stock = stock;
+  valid.imgUrl = imgUrl;
 
   validate(valid).then((err) => {
     if (err.length > 0) {
@@ -25,4 +25,4 @@ const updateUserDtoMiddleware = (
   });
 };
 
-export default updateUserDtoMiddleware;
+export default updateProductDtoMiddleware;

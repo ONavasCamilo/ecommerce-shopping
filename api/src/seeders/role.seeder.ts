@@ -1,4 +1,4 @@
-import { RoleEnum } from './../interfaces/role.enum';
+import { RoleEnum } from "./../interfaces/role.enum";
 import { Role } from "../entities/role.entity";
 
 const INITIAL_ROLES = [RoleEnum.ADMIN, RoleEnum.USER];

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import {
+  deleteUserService,
   getAllUsersService,
   getOneUserService,
   updatePasswordUserService,
@@ -69,8 +70,11 @@ export const updatePasswordUserController = async (req: Request, res: Response) 
   }
 };
 
-export const deleteUserController = (req: Request, res: Response) => {
+export const deleteUserController = async (req: Request, res: Response) => {
+  const { id } = req.params;
   try {
+    const deleteUser = await deleteUserService(id);
+    res.status(200).json(deleteUser)
   } catch (err) {
     console.log("ERROR:", err);
     if (err instanceof Error) {

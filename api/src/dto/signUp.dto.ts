@@ -8,7 +8,7 @@ import {
   MinLength,
 } from "class-validator";
 
-export class SignUpDto {
+class SignUpDto {
   @IsNotEmpty()
   @IsString()
   @MinLength(3)
@@ -39,3 +39,5 @@ export class SignUpDto {
   @IsNotEmpty()
   confirmpassword: string;
 }
+
+export default SignUpDto;

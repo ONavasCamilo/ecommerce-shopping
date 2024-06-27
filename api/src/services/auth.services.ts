@@ -1,4 +1,4 @@
-import { SignUpDto } from "../dto/signUp.dto";
+import SignUpDto from "../dto/signUp.dto";
 import RoleModel from "../repositories/role.repository";
 import UserModel from "../repositories/user.repository";
 import { comparePassword, hashPassword } from "../utils/passwordManager.utils";

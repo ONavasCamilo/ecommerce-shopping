@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { ValidationError, validate } from "class-validator";
-import { updatePasswordUserDto } from "../dto/updatePasswordUser.dto";
+import updatePasswordUserDto from "../dto/updatePasswordUser.dto";
 
 const updatePasswordUserDtoMiddleware = (
   req: Request,

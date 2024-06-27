@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { OrderDetail } from "./orderDetail";
+import { OrderDetail } from "./orderDetail.entity";
 import { Category } from "./category.entity";
 
 @Entity({

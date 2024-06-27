@@ -7,7 +7,7 @@ import {
   MinLength,
 } from "class-validator";
 
-export class updatePasswordUserDto {
+class updatePasswordUserDto {
   @IsNotEmpty()
   @IsString()
   @MinLength(8)
@@ -30,3 +30,5 @@ export class updatePasswordUserDto {
   @IsEmpty()
   phone?: string;
 }
+
+export default updatePasswordUserDto;
