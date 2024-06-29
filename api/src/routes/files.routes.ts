@@ -1,6 +1,8 @@
 import { Router } from "express";
 import multer from "multer";
 import { filesUploadImageController } from "../controllers/files.controller";
+import { verifyToken } from "../middlewares/verifyToken.middleware";
+import { isAdmin } from "../middlewares/isAdmin.middleware";
 
 const filesRouter = Router();
 
@@ -30,7 +32,7 @@ const upload = multer({
 filesRouter.post(
   "/uploadImage/:id",
   upload.single("file"),
-  filesUploadImageController
+  [verifyToken, isAdmin] , filesUploadImageController
 );
 
 export default filesRouter;
