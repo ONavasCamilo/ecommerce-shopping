@@ -1,17 +1,32 @@
 .div__navbar {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  background: #fff;
+  margin: 16px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  padding: 15px;
 }
 
 .icon__menu {
-    /* grid-column: span 1; */
-    justify-self: center;
+  grid-column: 1;
+}
+
+.icon__logo {
+  grid-column: 2;
+  
+}
+
+.icon__account,
+.icon__cart {
+  grid-column: span 1;
+  justify-self: end;
 }
 
 .icon__account {
-    grid-column: 5;
+  grid-column: 3;
 }
 
 .icon__cart {
-    grid-column: 6;
+  grid-column: 4;
 }
