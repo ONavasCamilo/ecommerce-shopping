@@ -1,26 +1,21 @@
 .div__navbar {
   display: flex;
   background: #fff;
-  margin: 16px 24px;
+  margin: 16px 10px;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  padding: 15px;
+  padding: 1rem;
 }
 
 .icon__menu {
   grid-column: 1;
+  margin-right: 2rem;
 }
 
 .icon__logo {
   grid-column: 2;
-  
-}
-
-.icon__account,
-.icon__cart {
-  grid-column: span 1;
-  justify-self: end;
+  width: 35px;
 }
 
 .icon__account {
@@ -29,4 +24,17 @@
 
 .icon__cart {
   grid-column: 4;
+  margin-left: 2.5rem;
+}
+
+.div__navbar div {
+  display: flex;
+  align-items: center;
+}
+
+.icon__menu:hover,
+.icon__logo:hover,
+.icon__account:hover,
+.icon__cart:hover {
+  cursor: pointer;
 }
