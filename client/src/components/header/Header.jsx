@@ -5,6 +5,7 @@ import iconAccount from "/iconAccount.svg";
 import iconCart from "/iconCart.svg";
 import iconCloseX from "/iconCloseX.svg";
 import { useState } from "react";
+import Menu from "./Menu";
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -12,12 +13,13 @@ const Header = () => {
   const toggleMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
-
   return (
+    <>
     <div className={style.div__navbar}>
       { isOpenMenu ? (
         <img src={iconCloseX} onClick={toggleMenu} className={style.icon__menu}/>
-      ) : (
+      )
+       : (
         <img src={iconMenu} onClick={toggleMenu} className={style.icon__menu} />
       ) }
       <img src={iconLogo} className={style.icon__logo} />
@@ -30,6 +32,8 @@ const Header = () => {
         {/* <span>Carrito</span> */}
       </div>
     </div>
+    { isOpenMenu && <Menu /> }
+    </>
   );
 };
 
