@@ -1,5 +1,12 @@
+.header__navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .div__navbar {
-  display: flex;
   background: #fff;
   margin: 16px 10px;
   display: grid;

@@ -1,6 +1,7 @@
 import style from "./Menu.module.css";
 
 const Menu = () => {
+
   return (
     <div className={style.menu_cont}>
       <div className={style.menu__div}>

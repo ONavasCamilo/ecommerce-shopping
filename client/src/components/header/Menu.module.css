@@ -1,29 +1,27 @@
 .menu_cont {
-  width: 50%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 200;
+  position: fixed;
   background: #fff;
   display: flex;
-  border: 1px solid #000;
+  padding-right: 47px;
+  z-index: -10;
 }
 
 .menu__div {
   display: flex;
   flex-direction: column;
-  max-height: 90%;
   width: 100%;
-  justify-content: space-around;
-  /* padding: 100px 30px; */
+  margin: 100px 30px;
   font-size: 14px;
-
-  border: 1px solid #000;
+  background: #fff;
 }
 
 .p__strong {
   font-size: 21px;
   font-weight: bold;
   padding: 0;
+}
+
+.icon__menuClose {
+  width: 20px;
 }

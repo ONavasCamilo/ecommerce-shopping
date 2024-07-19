@@ -14,26 +14,35 @@ const Header = () => {
     setIsOpenMenu(!isOpenMenu);
   };
   return (
-    <>
-    <div className={style.div__navbar}>
-      { isOpenMenu ? (
-        <img src={iconCloseX} onClick={toggleMenu} className={style.icon__menu}/>
-      )
-       : (
-        <img src={iconMenu} onClick={toggleMenu} className={style.icon__menu} />
-      ) }
-      <img src={iconLogo} className={style.icon__logo} />
-      <div>
-        <img src={iconAccount} className={style.icon__account} />
-        {/* <span>Cuenta</span> */}
+    <header className={style.header__navbar}>
+      <div className={style.div__navbar}>
+        {isOpenMenu ? (
+          <img
+            src={iconCloseX}
+            onClick={toggleMenu}
+            className={style.icon__menu}
+          />
+        ) : (
+          <img
+            src={iconMenu}
+            onClick={toggleMenu}
+            className={style.icon__menu}
+          />
+        )}
+        <img src={iconLogo} className={style.icon__logo} />
+        <div>
+          <img src={iconAccount} className={style.icon__account} />
+          {/* <span>Cuenta</span> */}
+        </div>
+        <div>
+          <img src={iconCart} className={style.icon__cart} />
+          {/* <span>Carrito</span> */}
+        </div>
       </div>
-      <div>
-        <img src={iconCart} className={style.icon__cart} />
-        {/* <span>Carrito</span> */}
-      </div>
-    </div>
-    { isOpenMenu && <Menu /> }
-    </>
+      {isOpenMenu && (
+        <Menu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
+      )}
+    </header>
   );
 };
 

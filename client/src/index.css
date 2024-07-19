@@ -17,17 +17,17 @@
 /**
  * Remove the margin in all browsers.
  */
-
- /* @font-face {
-  font-family: MiFuentePersonalizada;
-  src: url("CuteLove.ttf") format('truetype');
-} */
-
+ 
+  @font-face {
+   font-family: ArvoRegularTTF;
+   src: url("Arvo-Regular.ttf") format('truetype');
+ }
+ 
 body {
   margin: 0;
-  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-  font-family:Arial, Helvetica, sans-serif;
-  /* background: url("backgroundBlue.jpg"); */
+  font-family: ArvoRegularTTF;
+  /* background: url("backgroundExample.jpg"); */
+  background: #000;
   background-size: cover;
 }
 
