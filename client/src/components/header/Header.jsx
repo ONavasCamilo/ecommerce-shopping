@@ -39,9 +39,7 @@ const Header = () => {
           {/* <span>Carrito</span> */}
         </div>
       </div>
-      {isOpenMenu && (
-        <Menu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
-      )}
+        <Menu isOpenMenu={isOpenMenu}/>
     </header>
   );
 };

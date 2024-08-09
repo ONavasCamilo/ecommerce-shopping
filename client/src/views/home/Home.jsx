@@ -6,7 +6,7 @@ import accesoriosHomeImg from "/accesoriosHomeImg.png";
 const Home = () => {
   return (
     <main className={style.main__home}>
-      <h1>SHOPPYSTYLE</h1>
+      <h1>SHOPPISTYLE</h1>
       <section className={style.section__home}>
         <img
           src={sudaderasHomeImg}

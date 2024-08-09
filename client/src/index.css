@@ -18,21 +18,15 @@
  * Remove the margin in all browsers.
  */
  
-  @font-face {
-   font-family: ArvoRegularTTF;
-   src: url("Arvo-Regular.ttf") format('truetype');
- }
- 
 body {
   margin: 0;
-  font-family: ArvoRegularTTF;
-  /* background: url("backgroundExample.jpg"); */
-  background: #000;
+  font-family: 'effra';
+  background: #fff;
   background-size: cover;
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: none; 
 }
 /**
  * Render the `main` element consistently in IE.

@@ -3,21 +3,21 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .div__navbar {
   background: #fff;
-  margin: 16px 10px;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .icon__menu {
   grid-column: 1;
   margin-right: 2rem;
+  width: 20px;
 }
 
 .icon__logo {
@@ -31,7 +31,12 @@
 
 .icon__cart {
   grid-column: 4;
-  margin-left: 2.5rem;
+  margin-left: 1.5rem;
+  width: 23px;
+}
+
+.icon__account {
+  width: 23px;
 }
 
 .div__navbar div {

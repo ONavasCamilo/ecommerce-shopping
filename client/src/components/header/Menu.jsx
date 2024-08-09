@@ -1,9 +1,9 @@
 import style from "./Menu.module.css";
 
-const Menu = () => {
+const Menu = ({ isOpenMenu }) => {
 
   return (
-    <div className={style.menu_cont}>
+    <div className={ isOpenMenu ? style.menu_cont : style.hide }>
       <div className={style.menu__div}>
         <p className={style.p__strong}>Home</p>
         <div>
@@ -17,6 +17,7 @@ const Menu = () => {
           <p className={style.p__strong}>Registrarse</p>
         </div>
       </div>
+      <div className={style.background__openMenu}></div>
     </div>
   );
 };

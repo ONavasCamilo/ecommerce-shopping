@@ -3,17 +3,47 @@
   position: fixed;
   background: #fff;
   display: flex;
-  padding-right: 47px;
-  z-index: -10;
+  left: 0px;
+  z-index: 50;
+  animation: showMenu 0.45s ease-in-out;
+}
+
+@keyframes showMenu {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes hideMenu {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -200px;
+  }
+}
+
+.hide {
+  height: 100%;
+  position: fixed;
+  background: #fff;
+  display: flex;
+  left: -200px;
+  z-index: 50;
+  animation: hideMenu 0.45s ease-in-out;
 }
 
 .menu__div {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 100px 30px;
   font-size: 14px;
   background: #fff;
+  padding: 30px;
+  padding-right: 80px;
 }
 
 .p__strong {
@@ -24,4 +54,22 @@
 
 .icon__menuClose {
   width: 20px;
+}
+
+.background__openMenu {
+  position: absolute;
+  height: 100vh;
+  width: 100vh;
+  background-color: #fff;
+  transition: opacity 0.5s;
+  z-index: -1;
+}
+
+.menu_cont .background__openMenu {
+  opacity: .5;
+}
+
+.hide .background__openMenu {
+  opacity: 0;
+  /* z-index: -1; */
 }
