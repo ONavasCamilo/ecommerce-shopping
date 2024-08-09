@@ -9,7 +9,7 @@
 .div__navbar {
   background: #fff;
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto auto 1fr auto;
   align-items: center;
   padding: 1.6rem;
 }
@@ -22,21 +22,25 @@
 
 .icon__logo {
   grid-column: 2;
-  width: 35px;
+  width: 40px;
 }
 
-.icon__account {
+.icon__div_account {
   grid-column: 3;
+  justify-self: flex-end;
+  width: 35px;
+}
+.icon__account {
+  width: 26px;
+}
+
+.icon__div_cart {
+  grid-column: 4;
+  margin-left: 0.8rem;
 }
 
 .icon__cart {
-  grid-column: 4;
-  margin-left: 1.5rem;
-  width: 23px;
-}
-
-.icon__account {
-  width: 23px;
+  width: 27px;
 }
 
 .div__navbar div {

@@ -6,7 +6,7 @@ const Menu = ({ isOpenMenu }) => {
     <div className={ isOpenMenu ? style.menu_cont : style.hide }>
       <div className={style.menu__div}>
         <p className={style.p__strong}>Home</p>
-        <div>
+        <div className={style.div__products}>
           <p>SUDADERAS</p>
           <p>CAMISETAS</p>
           <p>ACCESORIOS</p>

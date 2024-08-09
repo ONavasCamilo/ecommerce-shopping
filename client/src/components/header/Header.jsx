@@ -6,6 +6,7 @@ import iconCart from "/iconCart.svg";
 import iconCloseX from "/iconCloseX.svg";
 import { useState } from "react";
 import Menu from "./Menu";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -29,17 +30,21 @@ const Header = () => {
             className={style.icon__menu}
           />
         )}
-        <img src={iconLogo} className={style.icon__logo} />
-        <div>
-          <img src={iconAccount} className={style.icon__account} />
-          {/* <span>Cuenta</span> */}
+        <NavLink to="/">
+          <img src={iconLogo} className={style.icon__logo} />
+        </NavLink>
+        <div className={style.icon__div_account}>
+          <NavLink to="/">
+            <img src={iconAccount} className={style.icon__account}/>
+            {/* <span>Cuenta</span> */}
+          </NavLink>
         </div>
-        <div>
-          <img src={iconCart} className={style.icon__cart} />
+        <div className={style.icon__div_cart} >
+          <img src={iconCart} className={style.icon__cart}/>
           {/* <span>Carrito</span> */}
         </div>
       </div>
-        <Menu isOpenMenu={isOpenMenu}/>
+      <Menu isOpenMenu={isOpenMenu} />
     </header>
   );
 };
