@@ -14,7 +14,7 @@ export const signUpController = async (req: Request, res: Response) => {
       password,
       confirmpassword
     });
-    const token = jwt.sign({ id: newUser.id }, JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign({ id: newUser.id, role: newUser.role }, JWT_SECRET, { expiresIn: "1d" });
     return res.status(202).json({
       token,
       newUser,
@@ -31,7 +31,7 @@ export const signInController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   try {
     const user = await signInService(email, password);
-    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, { expiresIn: "1d" });
     return res.status(200).json({
       token,
       user,

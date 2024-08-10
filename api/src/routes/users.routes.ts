@@ -15,7 +15,7 @@ const usersRouter = Router();
 
 usersRouter.get("/list", [verifyToken, isAdmin], getAllUsersController);
 
-usersRouter.get("/one/:id", [verifyToken] , getOneUserController);
+usersRouter.get("/one/:id", [verifyToken], getOneUserController);
 
 usersRouter.put("/update/:id", [updateUserDtoMiddleware, verifyToken], updateUserController);
 

@@ -46,6 +46,18 @@
   padding-right: 80px;
 }
 
+.menu__navlink {
+  text-decoration: none;
+  color: #020202;
+}
+
+.navlink_active {
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+  color: #020202;
+}
+
 .p__strong {
   font-size: 21px;
   font-weight: bold;
