@@ -60,14 +60,16 @@ export const postCreateProductController = async (
   res: Response
 ) => {
   const { name, description, price, stock, category } = req.body;
+  const { file } = req;
   try {
+    if (!file) throw new Error("Archivo sin enviar")
     const newProduct = await createProductService({
       name,
       description,
       price,
       stock,
       category,
-    });
+    }, file);
     res.status(202).json(newProduct);
   } catch (err) {
     console.log("ERROR:", err);
