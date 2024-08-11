@@ -10,13 +10,6 @@ const CreateProductDtoMiddleware = (
 ) => {
   const { name, description, price, stock, category } = req.body;
 
-  // const valid = new CreateProductDto();
-  // valid.name = name;
-  // valid.description = description;
-  // valid.price = price;
-  // valid.stock = stock;
-  // valid.category = category;
-
   const plainObject = {
     name,
     description,

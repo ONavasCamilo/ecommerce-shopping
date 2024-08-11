@@ -8,6 +8,15 @@ export const filesUploadImageService = async (
 ) => {
   const existProduct = await ProductModel.findOneBy({ id });
   if (!existProduct) throw new Error("Id de producto inexistente");
+  if (
+    existProduct.imgUrl &&
+    existProduct.imgUrl.includes("res.cloudinary.com")
+  ) {
+    const publicId = existProduct.imgUrl.split("/").pop()?.split(".")[0];
+    if (publicId) {
+      await cloudinary.uploader.destroy(`ecommerce_shopping/${publicId}`);
+    }
+  }
   const response: UploadApiResponse = await new Promise((resolve, reject) => {
     const upload = cloudinary.uploader.upload_stream(
       { resource_type: "auto", folder: "ecommerce_shopping" },

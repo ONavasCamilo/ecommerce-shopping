@@ -1,5 +1,4 @@
 import { Router } from "express";
-import multer from "multer";
 import {
   deleteProductController,
   getAllProductsController,
@@ -11,29 +10,7 @@ import updateProductDtoMiddleware from "../middlewares/updateProductDto.middlewa
 import { verifyToken } from "../middlewares/verifyToken.middleware";
 import { isAdmin } from "../middlewares/isAdmin.middleware";
 import CreateProductDtoMiddleware from "../middlewares/createProductDto.middleware";
-
-const storage = multer.memoryStorage();
-const upload = multer({
-  storage,
-  limits: { fileSize: 200000 }, // 200kb
-  fileFilter: (req, file, cb) => {
-    const filetypes = /jpg|jpeg|png|webp|svg|gif/;
-    const mimetype = filetypes.test(file.mimetype);
-    let extname = false;
-    if (file.originalname) {
-      const extension = file.originalname.split(".").pop()?.toLowerCase();
-      if (extension) {
-        extname = filetypes.test(extension);
-      }
-    }
-
-    if (mimetype && extname) {
-      return cb(null, true);
-    } else {
-      cb(new Error("Tipo de archivo no soportado"));
-    }
-  },
-});
+import uploadMulter from "../config/cloudinary.config";
 
 const productsRouter = Router();
 
@@ -49,7 +26,7 @@ productsRouter.put(
 
 productsRouter.post(
   "/create",
-  upload.single("file"),
+  uploadMulter.single("file"),
   [CreateProductDtoMiddleware, verifyToken, isAdmin],
   postCreateProductController
 );
