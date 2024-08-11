@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import {
+  createProductService,
+  deleteProductService,
   getAllProductsService,
   getOneProductService,
   updateProductService,
@@ -31,12 +33,18 @@ export const getOneProductsController = async (req: Request, res: Response) => {
 };
 
 export const updateProductController = async (req: Request, res: Response) => {
-    const { id } = req.params;
-    const { name, description, price, stock } = req.body;
+  const { id } = req.params;
+  const { name, description, price, stock } = req.body;
   try {
-    if (!name && !description && !price && !stock) throw new Error("Ingresa name, description, price o stock para actualizar")
+    if (!name && !description && !price && !stock)
+      throw new Error(
+        "Ingresa name, description, price o stock para actualizar"
+      );
     const updateProduct = await updateProductService(id, {
-        name, description, price, stock
+      name,
+      description,
+      price,
+      stock,
     });
     res.status(200).json(updateProduct);
   } catch (err) {
@@ -45,4 +53,39 @@ export const updateProductController = async (req: Request, res: Response) => {
       res.status(400).send({ statusCode: 400, message: err.message });
     }
   }
-}
+};
+
+export const postCreateProductController = async (
+  req: Request,
+  res: Response
+) => {
+  const { name, description, price, stock, category } = req.body;
+  try {
+    const newProduct = await createProductService({
+      name,
+      description,
+      price,
+      stock,
+      category,
+    });
+    res.status(202).json(newProduct);
+  } catch (err) {
+    console.log("ERROR:", err);
+    if (err instanceof Error) {
+      res.status(400).send({ statusCode: 400, message: err.message });
+    }
+  }
+};
+
+export const deleteProductController = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const deleteProduct = await deleteProductService(id);
+    res.status(200).json(deleteProduct);
+  } catch (err) {
+    console.log("ERROR:", err);
+    if (err instanceof Error) {
+      res.status(400).send({ statusCode: 400, message: err.message });
+    }
+  }
+};
