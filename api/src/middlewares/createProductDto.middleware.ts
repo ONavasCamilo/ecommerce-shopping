@@ -8,13 +8,12 @@ const CreateProductDtoMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  const { name, description, price, stock, category } = req.body;
+  const { name, price, stock, category } = req.body;
 
   const plainObject = {
     name,
-    description,
-    price: parseFloat(price),  // Convertir el precio a número
-    stock: parseInt(stock, 10), // Convertir el stock a número
+    price: parseFloat(price),
+    stock: parseInt(stock, 10),
     category,
   };
 

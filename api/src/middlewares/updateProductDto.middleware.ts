@@ -7,11 +7,10 @@ const updateProductDtoMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  const { name, description, price, stock, imgUrl } = req.body;
+  const { name, price, stock, imgUrl } = req.body;
 
   const valid = new UpdateProductDto();
   valid.name = name;
-  valid.description = description;
   valid.price = price;
   valid.stock = stock;
   valid.imgUrl = imgUrl;

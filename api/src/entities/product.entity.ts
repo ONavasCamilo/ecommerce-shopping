@@ -16,13 +16,7 @@ export class Product {
         nullable: false,
       })
     name: string;
-
-    @Column({
-        type: 'text',
-        nullable: false,
-      })
-    description: string;
-
+    
     @Column({
         type: 'decimal',
         precision: 10,
@@ -33,7 +27,7 @@ export class Product {
 
     @Column({
         type: 'int',
-        nullable: false,
+        nullable: false, 
       })
     stock: number;
 

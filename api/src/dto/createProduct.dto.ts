@@ -1,4 +1,5 @@
 import {
+  IsDecimal,
     IsInt,
     IsString,
     Max,
@@ -11,9 +12,6 @@ import {
     @IsString()
     @MaxLength(50)
     name: string;
-  
-    @IsString()
-    description: string;
 
     @Type(() => Number)
     @Min(0, { message: "El precio no puede ser negativo." })

@@ -34,15 +34,14 @@ export const getOneProductsController = async (req: Request, res: Response) => {
 
 export const updateProductController = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name, description, price, stock } = req.body;
+  const { name, price, stock } = req.body;
   try {
-    if (!name && !description && !price && !stock)
+    if (!name && !price && !stock)
       throw new Error(
-        "Ingresa name, description, price o stock para actualizar"
+        "Ingresa name, price o stock para actualizar"
       );
     const updateProduct = await updateProductService(id, {
       name,
-      description,
       price,
       stock,
     });
@@ -59,13 +58,12 @@ export const postCreateProductController = async (
   req: Request,
   res: Response
 ) => {
-  const { name, description, price, stock, category } = req.body;
+  const { name, price, stock, category } = req.body;
   const { file } = req;
   try {
     if (!file) throw new Error("Archivo sin enviar")
     const newProduct = await createProductService({
       name,
-      description,
       price,
       stock,
       category,

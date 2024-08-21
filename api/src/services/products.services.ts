@@ -72,6 +72,15 @@ export const createProductService = async (product: CreateProductDto, file: Expr
 export const deleteProductService = async (id: string) => {
   const existProduct = await ProductModel.findOneBy({ id });
   if (!existProduct) throw new Error("Id de producto inexistente");
+  if (
+    existProduct.imgUrl &&
+    existProduct.imgUrl.includes("res.cloudinary.com")
+  ) {
+    const publicId = existProduct.imgUrl.split("/").pop()?.split(".")[0];
+    if (publicId) {
+      await cloudinary.uploader.destroy(`ecommerce_shopping/${publicId}`);
+    }
+  }
   await ProductModel.delete(existProduct);
   return existProduct;
 };

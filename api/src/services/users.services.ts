@@ -1,25 +1,32 @@
+import { FiltersUsersDto } from "../dto/filtersUsers.dto";
 import updatePasswordUserDto from "../dto/updatePasswordUser.dto";
 import UpdateUserDto from "../dto/updateUser.dto";
 import OrderModel from "../repositories/order.repository";
 import UserModel from "../repositories/user.repository";
 import { comparePassword, hashPassword } from "../utils/passwordManager.utils";
 
-export const getAllUsersService = async () => {
-  const users = await UserModel.find({
+export const getAllUsersService = async (params: FiltersUsersDto) => {
+  const { limit, offset, name, email } = params;
+
+  return await UserModel.find({
+    where: {
+      name: name || undefined,
+      email: email || undefined,
+    },
     relations: {
       role: true,
       orders: true,
     },
+    take: limit,
+    skip: offset,
   });
-  return users;
 };
 
 export const getOneUserService = async (id: string) => {
-  const user = await UserModel.findOne({
+  return await UserModel.findOne({
     where: { id },
     relations: ["role", "orders"],
   });
-  return user;
 };
 
 export const updateUserServices = async (

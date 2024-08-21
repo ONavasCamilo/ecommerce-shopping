@@ -8,8 +8,12 @@ import {
 } from "../services/users.services";
 
 export const getAllUsersController = async (req: Request, res: Response) => {
+  const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : undefined;
+  const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : undefined;
+  const name = req.query.name as string;
+  const email = req.query.email as string;
   try {
-    const users = await getAllUsersService();
+    const users = await getAllUsersService({ limit, offset, name, email });
     res.status(200).json(users);
   } catch (err) {
     console.log("ERROR:", err);
